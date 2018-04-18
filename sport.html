@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	<title>Serious Groceries</title>
+	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<link rel="icon" type="image/png" href="assets/img/logo128.png">
+</head>
+<body>
+	<div id="top"></div>
+	<!-- Progress bar area -->
+	<div class="progress bar"></div>
+	<a href="#top" class="ui circular icon button" id="toTop" data-slide="slide">
+		<i class="angle up icon"></i>
+	</a>
+
+	<!-- Navbar fixed top area -->
+	<div class="ui fixed top menu">
+		<div class="center menu">
+			<a href="index.html" class="active item">Home</a>
+			<a href="recipe.html" class="item">Recipes</a>
+			<a href="new-data.html" class="item">Data</a>
+			<a href="index.html" class="active item">
+					<img class="logo" src="assets/img/logo128.png">
+					&nbsp;Serious Groceries
+			</a>
+			<a href="" class="icon item logo" id="trigger"><i class="sidebar icon"></i></a>
+			<a href="login.html" class="item">Login</a>
+			<a href="signup.html" class="item">Signup</a>
+			<a href="maps.html" class="item">Locate</a>
+		</div>
+	</div>
+	<!-- Collapse Navbar Menu -->
+	<div class="ui fluid vertical menu collapse"></div>
+
+	<!-- Content area -->
+	<div class="ui container content">
+		<div class="ui stackable doubling grid">
+			<!-- Middle Content -->
+			<div class="sixteen wide column">
+				<div class="ui horizontal divider"><h2>Sport Diet</h2></div>
+				<div align="center">
+					<canvas id="myChart"></canvas>
+					<script>
+						function processData(myData) {
+							// create empty arrays for my chart values and labels
+							var myValues = [];
+							var myLabels = [];
+
+							// use a loop to fill the arrays with our data
+							for (var i = 0 ; i < 3 ; i++) {
+								myLabels[i] = myData[i].University;
+								myValues[i] = myData[i].Students;
+							}
+
+							// use the Chart.js library to draw the chart
+							var myChart = new Chart($("#myChart"), {
+								type: 'doughnut', // try other types: line, bar, pie, doughnut, polarArea
+								data: {
+									labels: myLabels,
+									datasets: [{
+										data: myValues,
+										backgroundColor: ["blue", "red", "green"],
+										label: "Number of Enrolled Students"
+									}]
+								},
+								"options":{"scales":{"yAxes":[{"ticks":{ "beginAtZero": true }}]}}
+							});
+						}
+
+						// use the jQuery library to grab the data from our spreadsheet API and call processData(myData)
+						$(document).ready(function() {
+							$.getJSON("http://danycabrera.com/csc130/proxy.php?key=1ImPVEO6zouQJIBKJqz8XiYTcln3ChJrGf1Gh-C-YGUs&sheet=sports", processData);
+						});
+					</script>
+				</div>
+				<br>
+
+				<!-- Slider Container -->
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer area -->
+	<div class="container footer">
+		<div class="ui container">
+			<div class="ui four column stackable doubling grid">
+				<div class="column">
+					<div class="ui header">Sample Category</div>
+					<div class="ui list">
+						<a href="index.html" class="item">Home</a>
+						<a href="singup.html" class="item">Signup</a>
+						<a href="login.html" class="item">Login</a>
+						<a href="locate.html" class="item">Locate</a>
+						<a href="new-data.html" class="item">Data</a>
+
+
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui header">Help</div>
+					<div class="ui list">
+						<a href="#" class="item">Term of Service</a>
+						<a href="privacy.html" class="item">Privacy Policy</a>
+						<a href="#" class="item">FAQ</a>
+						<a href="#" class="item">Contact Us</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		Modern Template | Muhibbudin Suretno | Semantic UI
+	</div>
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="semantic/dist/semantic.min.js"></script>
+	<script src="assets/js/owl.carousel.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
