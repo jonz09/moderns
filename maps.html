@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	<title>Serious Groceries</title>
+	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<link rel="icon" type="image/png" href="assets/img/logo128.png">
+	<style>
+			#map{
+
+			}
+	</style>
+</head>
+<body>
+	<div id="top"></div>
+	<!-- Progress bar area -->
+	<div class="progress bar"></div>
+	<a href="#top" class="ui circular icon button" id="toTop" data-slide="slide">
+		<i class="angle up icon"></i>
+	</a>
+
+	<!-- Navbar fixed top area -->
+	<div class="ui fixed top menu">
+		<div class="center menu">
+			<a href="index.html" class="active item">Home</a>
+			<a href="recipe.html" class="item">Recipes</a>
+			<a href="new-data.html" class="item">Data</a>
+
+
+			<a href="index.html" class="active item">
+					<img class="logo" src="assets/img/logo128.png">
+					&nbsp;Serious Groceries
+			</a>
+			<a href="" class="icon item logo" id="trigger"><i class="sidebar icon"></i></a>
+			<a href="login.html" class="item">Login</a>
+			<a href="signup.html" class="item">Signup</a>
+		</div>
+	</div>
+	<!-- Collapse Navbar Menu -->
+	<div class="ui fluid vertical menu collapse"></div>
+
+	<!-- Content area -->
+	<div class="ui container content">
+		<div class="ui stackable doubling grid">
+			<!-- Middle Content -->
+			<div class="sixteen wide column">
+				<div class="ui horizontal divider"><h2>Nearby Groceries</h2></div>
+				<div align="center">
+
+					<div id="map" style="width:800px;height:500px;"></div>
+
+					<script>
+
+			      function initMap() {
+
+			        var map = new google.maps.Map(document.getElementById('map'), {
+			          zoom: 14,
+			          center: {lat:48.464028, lng:-123.316713}
+			        });
+
+			        // Create an array of alphabetical characters used to label the markers.
+			        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+			        // Add some markers to the map.
+			        // Note: The code uses the JavaScript Array.prototype.map() method to
+			        // create an array of markers based on a given "locations" array.
+			        // The map() method here has nothing to do with the Google Maps API.
+			        var markers = locations.map(function(location, i) {
+			          return new google.maps.Marker({
+			            position: location,
+			            label: labels[i % labels.length]
+			          });
+			        });
+
+			        // Add a marker clusterer to manage the markers.
+			        var markerCluster = new MarkerClusterer(map, markers,
+			            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+			      }
+			      var locations = [
+			        {lat: 48.460947, lng: -123.296949},
+			        {lat: 48.461022, lng: -123.296823},
+			        {lat: 48.469104, lng: -123.331315},
+			        {lat: 48.468240, lng: -123.334734},
+							{lat: 48.470237, lng: -123.333594},
+							{lat: 48.461495, lng: -123.334978},
+							{lat: 48.459881, lng: -123.332002},
+
+							{lat: 48.468240, lng: -123.334734},
+							{lat: 48.468240, lng: -123.334734},
+							{lat: 48.468240, lng: -123.334734},
+
+			      ]
+			    </script>
+
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANMp1On-bQKJWtopd580b96X6EMa2-i6w&callback=myMap"></script>
+					<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+			    </script>
+			    <script async defer
+			    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANMp1On-bQKJWtopd580b96X6EMa2-i6w&callback=initMap">
+			    </script>
+				</div>
+				<br>
+
+				<!-- Slider Container -->
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer area -->
+	<div class="container footer">
+		<div class="ui container">
+			<div class="ui four column stackable doubling grid">
+				<div class="column">
+					<div class="ui header">Sample Category</div>
+					<div class="ui list">
+						<a href="index.html" class="item">Home</a>
+						<a href="singup.html" class="item">Signup</a>
+						<a href="login.html" class="item">Login</a>
+						<a href="locate.html" class="item">Locate</a>
+						<a href="new-data.html" class="item">Data</a>
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui header">Help</div>
+					<div class="ui list">
+						<a href="#" class="item">Term of Service</a>
+						<a href="privacy.html" class="item">Privacy Policy</a>
+						<a href="#" class="item">FAQ</a>
+						<a href="#" class="item">Contact Us</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		Modern Template | Muhibbudin Suretno | Semantic UI
+	</div>
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="semantic/dist/semantic.min.js"></script>
+	<script src="assets/js/owl.carousel.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
